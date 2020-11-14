@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Guitar world</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="banner">
+    <h1>Welcome to the guitar world!</h1>
+</div>
+<div class="text">
+    <a href="/"><=Back</a>
+</div>
+<img th:each="guitar:${guitars}" th:src="${guitar.pictUrl}" th:text="${guitar.modelName}"/>
+</body>
+</html>

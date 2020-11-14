@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Add a guitar!</title>
+</head>
+<body>
+<div class="banner">
+    <h1>Add a guitar</h1>
+</div>
+<div class="text">
+    <form method="post" th:action="@{/add}" th:object="${guitar}"><br/>
+        Model: <input type="text" name="modelName" th:field="*{modelName}"><br/>
+        Producer: <input type="text" name="producer" th:field="*{producer}"><br/>
+        Guitarist: <input type="text" name="guitarist" th:field="*{guitarist}"><br/>
+        Description: <textarea rows="30" placeholder="Something interesting about the instrument" name="description"
+                               th:field="*{description}"></textarea><br/>
+        Image: <textarea rows="1" placeholder="Do you have a picture? Insert a link here!" name="picture"
+                         th:field="*{pictUrl}"></textarea>
+        <input type="submit" value="Add">
+    </form>
+</div>
+</body>
+</html>

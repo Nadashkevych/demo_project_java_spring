@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Guitar World</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<br>
+<div class="banner">
+    <h1>Welcome to the guitar world!</h1>
+</div>
+<div class="links">
+    <a href="/gallery"><h2>Gallery</h2></a></div>
+<div class="links">
+    <a href="/producers"><h2>Producers</h2></a></div>
+<div class="links">
+    <a href="/stars"><h2>Stars</h2></a>
+</div>
+<div class="links2">
+    <a href="/add">Add a guitar to the gallery!</a>
+</div>
+<br/>
+
+<a th:href="@{'/guitar?modName=' + ${guitar.modelName}}" th:each="guitar:${guitars}">
+    <img th:src="${guitar.pictUrl}" style="width: 150px" class="float"/>
+</a>
+</body>
+</html>

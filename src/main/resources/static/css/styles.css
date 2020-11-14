@@ -1,0 +1,39 @@
+.banner {
+    position: center;
+    background-color: darkgoldenrod;
+    font-family: "Arial Black", serif;
+}
+
+.links {
+    margin-left: 20px;
+    margin-right: 10px;
+    font-family: Bahnschrift, serif;
+    display: inline-block;
+    width: auto;
+}
+
+.text {
+    font-family: Arial, serif;
+}
+
+.links2 {
+    float: right;
+    font-family: Bahnschrift, serif;
+    margin-right: 40px;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: saddlebrown;
+}
+
+img {
+    width: 180px;
+    height: 450px;
+    display: inline-block;
+    margin-right: 20px;
+    object-fit: cover;
+}
