@@ -54,13 +54,12 @@ public class MainController {
 
     @GetMapping("/producer")
     public String producer(Model model, @RequestParam("producerNm") String producerNm) {
+        model.addAttribute("producer", producerNm);
+        List<Guitar> guitars = repos.findAll().stream()
+                .filter(guitar -> guitar.getProducer().equals(producerNm))
+                .collect(Collectors.toList());
+        model.addAttribute("guitars", guitars);
         return "producer";
-    }
-
-    @GetMapping("/stars")
-    public String stars(Model model) {
-
-        return "stars";
     }
 
     @GetMapping("/add")
