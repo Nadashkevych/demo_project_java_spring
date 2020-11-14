@@ -14,7 +14,7 @@
 </div>
 <figure th:each="guitar:${guitars}">
     <img th:src="${guitar.pictUrl}">
-    <figcaption th:text="${guitar.modelName}"></figcaption>
+    <figcaption class="text" th:text="${guitar.modelName}"></figcaption>
 </figure>
 </body>
 </html>

@@ -9,6 +9,7 @@
 <div class="banner">
     <h1 th:text="${producer}"></h1>
 </div>
-<a th:href="@{'/guitar?modName='+${guitar.modelName}}" th:each="guitar:${guitars}" th:text="${guitar.modelName}"></a>
+<a class="links3" th:href="@{'/guitar?modName='+${guitar.modelName}}"
+   th:each="guitar:${guitars}" th:text="${guitar.modelName}"></a>
 </body>
 </html>
