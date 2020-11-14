@@ -14,11 +14,11 @@
         Model: <input type="text" name="modelName" th:field="*{modelName}"><br/>
         Producer: <input type="text" name="producer" th:field="*{producer}"><br/>
         Guitarist: <input type="text" name="guitarist" th:field="*{guitarist}"><br/>
-        Description: <textarea rows="30" placeholder="Something interesting about the instrument" name="description"
+        Description: <textarea rows="10" placeholder="Something interesting about the instrument" name="description"
                                th:field="*{description}"></textarea><br/>
-        Image: <textarea rows="1" placeholder="Do you have a picture? Insert a link here!" name="picture"
-                         th:field="*{pictUrl}"></textarea>
-        <input type="submit" value="Add">
+        Image: <textarea rows="2" placeholder="Do you have a picture? Insert a link here!" name="picture"
+                         th:field="*{pictUrl}"></textarea><br/>
+        <button type="submit">Add</button>
     </form>
 </div>
 </body>

@@ -12,6 +12,9 @@
 <div class="text">
     <a href="/"><=Back</a>
 </div>
-<img th:each="guitar:${guitars}" th:src="${guitar.pictUrl}" th:text="${guitar.modelName}"/>
+<figure th:each="guitar:${guitars}">
+    <img th:src="${guitar.pictUrl}">
+    <figcaption th:text="${guitar.modelName}"></figcaption>
+</figure>
 </body>
 </html>

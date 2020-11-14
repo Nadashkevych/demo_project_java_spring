@@ -5,7 +5,7 @@ public class Guitar {
     private String producer;
     private String guitarist;
     private String description;
-    private String pictUrl;
+    private String pictUrl = "https://nedstarkdies.files.wordpress.com/2015/03/12th_fret_draft2.jpg";
 
     public Guitar() {
     }
