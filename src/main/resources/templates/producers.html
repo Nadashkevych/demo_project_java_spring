@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Guitar World</title>
+    <title>Guitar world</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-
+<div class="banner">
+    <h1>Find guitars by producer</h1>
+</div>
+<a class="links" th:href="@{'/producer?producerNm='+${producer}}" th:each="producer:${producers}"
+   th:text="${producer}"></a>
 </body>
 </html>

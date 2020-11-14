@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class MainController {
@@ -41,8 +42,19 @@ public class MainController {
 
     @GetMapping("/producers")
     public String producers(Model model) {
-
+        List<Guitar> guitars = repos.findAll();
+        model.addAttribute("guitars", guitars);
+        List<String> producers = guitars.stream()
+                .map(Guitar::getProducer)
+                .distinct()
+                .collect(Collectors.toList());
+        model.addAttribute("producers", producers);
         return "producers";
+    }
+
+    @GetMapping("/producer")
+    public String producer(Model model, @RequestParam("producerNm") String producerNm) {
+        return "producer";
     }
 
     @GetMapping("/stars")
