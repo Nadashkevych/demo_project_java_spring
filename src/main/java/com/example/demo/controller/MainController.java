@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -72,6 +76,22 @@ public class MainController {
     @PostMapping("/add")
     public String addAGuitar(Guitar guitar) {
         repos.add(guitar);
+        try {
+            File file = new File("file.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter bfw = new BufferedWriter(fileWriter);
+            bfw.write(guitar.getModelName() + "^" + guitar.getProducer() + "^" + guitar.getGuitarist() + "^" +
+                    guitar.getDescription() + "^" + guitar.getPictUrl());
+            bfw.newLine();
+            bfw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         return "redirect:/guitar?modName=" + guitar.getModelName();
     }
 }
