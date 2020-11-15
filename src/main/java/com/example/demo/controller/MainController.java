@@ -8,19 +8,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
 public class MainController {
     private GuitarRepos repos;
+    private String textFromFile;
 
     public MainController(final GuitarRepos repos) {
         this.repos = repos;
+        File file = new File("file.txt");
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                this.textFromFile += line + "\n";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @GetMapping("/")
@@ -83,15 +92,15 @@ public class MainController {
             }
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bfw = new BufferedWriter(fileWriter);
-            bfw.write(guitar.getModelName() + "^" + guitar.getProducer() + "^" + guitar.getGuitarist() + "^" +
-                    guitar.getDescription() + "^" + guitar.getPictUrl());
+            String newText = (guitar.getModelName() + "regex" + guitar.getProducer() + "regex" + guitar.getGuitarist() + "regex" +
+                    guitar.getDescription() + "regex" + guitar.getPictUrl());
+            textFromFile += newText;
+            bfw.write(textFromFile);
             bfw.newLine();
             bfw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
         return "redirect:/guitar?modName=" + guitar.getModelName();
     }
 }
